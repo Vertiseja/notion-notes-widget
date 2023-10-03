@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<title>Notatki</title>
+<body>
+
+    <div class="widget">
+        <div class="container">
+
+        <div class="left">
+            <button class="giga"><h1><img src="edite.png">Nowa notka</h1></button>
+
+            <button class="btn a"><img src="a.svg">Inżynieria genetyczna</button>
+            <button class="btn b"><img src="b.svg">Biotechnologia ścieków</button>
+            <button class="btn c"><img src="c.svg">Oczyszczanie wód</button>
+            <button class="btn d"><img src="d.svg">Bioremediacja</button>
+            <button class="btn e"><img src="e.svg">Biomateriały</button>
+            <button class="btn f"><img src="f.svg">Bioreaktory</button>
+            <button class="btn g"><img src="g1.svg">Angielski</button>
+        </div>
+
+        <div class="right" id="resizable-widget">
+           
+            <div class="notes-container">
+
+                <!-- <p contenteditable="true" class="input-box aa">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box ba">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box ca">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box da">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box ea">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box fa">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box ga">
+                    <img src="delete.png">
+                </p> -->
+
+            </div>
+        </div>
+
+
+
+    </div></div>
+</div>
+
+<script src="runn.js"></script>
+</body>
+</html>
