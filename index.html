@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.widget {
+    width: 150vh;
+    min-height: 100vh;
+    background-color: rgb(23, 116, 99);
+    padding: 20px;
+    resize: both;
+    overflow: auto;
+}
+
+.container {
+    width: 95%;
+    min-height: 100vh;
+    background-color: rgb(193, 188, 193);
+    display: grid;
+    grid-template-columns: 20% 80%;
+    gap: 5px;
+    padding-right: 20px;
+    border-color: rgb(161, 160, 161);
+    border-style: solid;
+    border-width: 0 10px 9px 0 ;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    padding-top: 5px;
+
+}
+
+.right {
+    min-height: 100vh;
+    background-image: url("krata.png");
+    padding-top: 4%;
+    padding-left: 5%;
+    resize: both;
+    overflow: auto;
+}
+
+
+.left {
+    min-height: 100vh;
+    background-color: #dfd9e2f0;
+    display: flex;
+    flex-direction: column;
+    resize: horizontal;
+    overflow: visible;
+}
+
+.giga {
+    background-color: #b18db9;
+    align-self: flex-start;
+    align-items: flex-start;
+}
+
+.left button {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    outline: 0;
+    border: 0;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 30px 0 20px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.left h1 {
+    align-self: center;
+    color: #353434;
+}
+
+.left h1 img {
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+}
+
+.left button img {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    min-height: 150px;
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    margin: 20px 0;
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-box img {
+    width: 25px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+
+/* Kolory guzików */
+
+.a {
+background-color: #2570d3;
+}
+
+.b {
+    background-color: #f3740d;
+}
+
+.c {
+    background-color: #099f8b;
+}
+
+.d {
+    background-color: #5d3930;    
+}
+
+.e {
+    background-color: #ba3a89;
+}
+
+.f {
+    background-color: #ffec1f;
+}
+
+.g {
+    background-color: #8e1414;
+}
+
+/* Kolory notek */
+
+.aa {
+    background-color: #b9d3f5;
+}
+    
+.ba {
+    background-color: #ffc595;
+}
+    
+.ca {
+    background-color: #94ece0;
+}
+    
+.da {
+    background-color: #bfaeaa;  
+}
+    
+.ea {
+    background-color: #ffc4f6;
+}
+    
+.fa {
+    background-color: #fffcb0;
+}
+    
+.ga {
+    background-color: #ff9898;
+}
+  </style>
+  
+</head>
+<title>Notatki</title>
+<body>
+
+    <div class="widget">
+        <div class="container">
+
+        <div class="left">
+            <button class="giga"><h1><img src="edite.png">Nowa notka</h1></button>
+
+            <button class="btn a"><img src="a.svg">Inżynieria genetyczna</button>
+            <button class="btn b"><img src="b.svg">Biotechnologia ścieków</button>
+            <button class="btn c"><img src="c.svg">Oczyszczanie wód</button>
+            <button class="btn d"><img src="d.svg">Bioremediacja</button>
+            <button class="btn e"><img src="e.svg">Biomateriały</button>
+            <button class="btn f"><img src="f.svg">Bioreaktory</button>
+            <button class="btn g"><img src="g1.svg">Angielski</button>
+        </div>
+
+        <div class="right" id="resizable-widget">
+           
+            <div class="notes-container">
+
+                <!-- <p contenteditable="true" class="input-box aa">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box ba">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box ca">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box da">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box ea">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box fa">
+                    <img src="delete.png">
+                </p> -->
+
+                <!-- <p contenteditable="true" class="input-box ga">
+                    <img src="delete.png">
+                </p> -->
+
+            </div>
+        </div>
+
+
+
+    </div></div>
+</div>
+
+<script>
+  // Resize
+const widget = document.getElementById('resizable-widget');
+
+widget.addEventListener('mousedown', (e) => {
+    if (e.target.style.resize === 'both') {
+        let startX = e.clientX;
+        let startY = e.clientY;
+        let startWidth = parseInt(document.defaultView.getComputedStyle(widget).width, 10);
+        let startHeight = parseInt(document.defaultView.getComputedStyle(widget).height, 10);
+
+        function onMouseMove(e) {
+            const newWidth = startWidth + e.clientX - startX;
+            const newHeight = startHeight + e.clientY - startY;
+            
+            widget.style.width = newWidth + 'px';
+            widget.style.height = newHeight + 'px';
+        }
+
+        function onMouseUp() {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    }
+});
+
+// Buttons
+
+const notesContainer = document.querySelector(".notes-container");
+
+// funkcja guzików
+
+
+const createBtna = document.querySelector(".a");
+const createBtnb = document.querySelector(".b");
+const createBtnc = document.querySelector(".c");
+const createBtnd = document.querySelector(".d");
+const createBtne = document.querySelector(".e");
+const createBtnf = document.querySelector(".f");
+const createBtng = document.querySelector(".g");
+
+// koniec
+
+let notes = document.querySelectorAll(".input-box");
+
+function showNotes(){
+    notesContainer.innerHTML = localStorage.getItem("notes");
+}
+showNotes();
+
+function updateStorage() {
+    localStorage.setItem("notes", notesContainer.innerHTML);
+}
+
+// funkcja
+
+createBtna.addEventListener("click", ()=>{
+    let inputBox = document.createElement("p");
+    let img = document.createElement("img");
+    inputBox.className = "input-box aa";
+    inputBox.setAttribute("contenteditable", "true");
+    img.src = "delete.png";
+    notesContainer.appendChild(inputBox).appendChild(img);
+})
+
+createBtnb.addEventListener("click", ()=>{
+    let inputBox = document.createElement("p");
+    let img = document.createElement("img");
+    inputBox.className = "input-box ba";
+    inputBox.setAttribute("contenteditable", "true");
+    img.src = "delete.png";
+    notesContainer.appendChild(inputBox).appendChild(img);
+})
+
+createBtnc.addEventListener("click", ()=>{
+    let inputBox = document.createElement("p");
+    let img = document.createElement("img");
+    inputBox.className = "input-box ca";
+    inputBox.setAttribute("contenteditable", "true");
+    img.src = "delete.png";
+    notesContainer.appendChild(inputBox).appendChild(img);
+})
+
+createBtnd.addEventListener("click", ()=>{
+    let inputBox = document.createElement("p");
+    let img = document.createElement("img");
+    inputBox.className = "input-box da";
+    inputBox.setAttribute("contenteditable", "true");
+    img.src = "delete.png";
+    notesContainer.appendChild(inputBox).appendChild(img);
+})
+
+createBtne.addEventListener("click", ()=>{
+    let inputBox = document.createElement("p");
+    let img = document.createElement("img");
+    inputBox.className = "input-box ea";
+    inputBox.setAttribute("contenteditable", "true");
+    img.src = "delete.png";
+    notesContainer.appendChild(inputBox).appendChild(img);
+})
+
+createBtnf.addEventListener("click", ()=>{
+    let inputBox = document.createElement("p");
+    let img = document.createElement("img");
+    inputBox.className = "input-box fa";
+    inputBox.setAttribute("contenteditable", "true");
+    img.src = "delete.png";
+    notesContainer.appendChild(inputBox).appendChild(img);
+})
+
+createBtng.addEventListener("click", ()=>{
+    let inputBox = document.createElement("p");
+    let img = document.createElement("img");
+    inputBox.className = "input-box ga";
+    inputBox.setAttribute("contenteditable", "true");
+    img.src = "delete.png";
+    notesContainer.appendChild(inputBox).appendChild(img);
+})
+
+</script>
+</body>
+</html>
